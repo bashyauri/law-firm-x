@@ -8,7 +8,35 @@
                 <div class="card-header">{{ __('Register Client') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('store') }}">
+                    @if(Session::has('error_message'))
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <strong>Error</strong> {{Session::get('error_message')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+                    @if(Session::has('success_message'))
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                      <strong>Success</strong> {{Session::get('success_message')}}
+                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    @endif
+
+                    @if ($errors->any())
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                  @endforeach
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+
+              </div>
+              @endif
+                    <form method="POST" action="{{ route('store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -69,7 +97,7 @@
                             <label for="primary_legal_counsel" class="col-md-4 col-form-label text-md-end">{{ __('Primary Legal Counsel') }}</label>
 
                             <div class="col-md-6">
-                                <input id="primary_legal_counsel" type="text" class="form-control @error('primary_legal_counsel') is-invalid @enderror" name="primary_legal_counsel" required autocomplete="primary_legal_counsel">
+                                <input id="primary_legal_counsel" type="text" class="form-control @error('primary_legal_counsel') is-invalid @enderror" name="primary_legal_counsel" value="{{ old('primary_legal_counsel') }}" required autocomplete="primary_legal_counsel">
 
                                 @error('primary_legal_counsel')
                                     <span class="invalid-feedback" role="alert">
@@ -83,7 +111,7 @@
                             <label for="date_of_birth" class="col-md-4 col-form-label text-md-end">{{ __('Date of Birth') }}</label>
 
                             <div class="col-md-6">
-                                <input id="date_of_birth" type="date" class="form-control" name="date_of_birth" required autocomplete="date_of_birth">
+                                <input id="date_of_birth" type="date" class="form-control" name="date_of_birth"  value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth">
                             </div>
                         </div>
                         <div class="row mb-3">
