@@ -17,10 +17,8 @@ class NewClientRegistered
     /**
      * Create a new event instance.
      */
-    public function __construct()
-    {
-        //
-    }
+
+    public function __construct(public $user){}
 
     /**
      * Get the channels the event should broadcast on.
