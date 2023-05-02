@@ -38,7 +38,7 @@ class ClientController extends Controller
         'date_profiled' => 'required|date',
         'primary_legal_counsel' => 'required',
         'date_of_birth' => 'nullable|date',
-        'profile_image' => 'nullable|image|max:2048',
+        'profile_image' => 'nullable|mimes:jpg,jpeg,png|max:2048',
         'case_details' => 'nullable',
     ]);
 
@@ -57,6 +57,7 @@ class ClientController extends Controller
     // Mail::to($client->email)->send(new WelcomeEmail($client));
 
     // Redirect to the client profile view
+    return redirect()->back()->with(['success_message' => 'Record Created']);
     return redirect()->route('clients.show', $client->id);
     }
 
