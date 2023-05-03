@@ -32,6 +32,38 @@
 
               </div>
               @endif
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First</th>
+                    <th scope="col">Last</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    @php
+                        $i = 1;
+
+                    @endphp
+                    @if (!empty($clients))
+                    @foreach ($clients as $client)
+                    <tr>
+                        <th scope="row">{{$i++}}</th>
+                        <td>{{strtoupper($client->first_name)}}</td>
+                        <td>{{strtoupper($client->last_name)}}</td>
+                        <td><a href="{{route('show',['id'=>$client->id])}}" class="text-secondary font-weight-normal text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                            View
+                          </a></td>
+                      </tr>
+                    @endforeach
+
+                    @else
+                      <p>No Record found</p>
+                    @endif
+
+                </tbody>
+              </table>
 
                 </div>
             </div>
