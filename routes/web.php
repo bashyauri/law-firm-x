@@ -15,10 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('clients.create');
+    return view('clients.index');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('/clients/register', [ClientController::class,'store'])->name('store');
+Route::get('/clients/index', [ClientController::class,'index']);
