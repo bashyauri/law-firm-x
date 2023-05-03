@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NewClientRegistered;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 
 class ClientController extends Controller
@@ -30,7 +32,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
 
-          // Validate the input
+         // Validate the input
     $validatedData = $request->validate([
         'first_name' => 'required',
         'last_name' => 'required',
@@ -42,7 +44,7 @@ class ClientController extends Controller
         'case_details' => 'nullable',
     ]);
 
-    // Save the client data to the database
+  //  Save the client data to the database
     $client = new Client();
     $client->fill($validatedData);
 
@@ -53,12 +55,15 @@ class ClientController extends Controller
 
     $client->save();
 
+
+    Event::dispatch(new NewClientRegistered($client));
+
     // Send a welcome email to the client
     // Mail::to($client->email)->send(new WelcomeEmail($client));
 
     // Redirect to the client profile view
     return redirect()->back()->with(['success_message' => 'Record Created']);
-    return redirect()->route('clients.show', $client->id);
+
     }
 
     /**
