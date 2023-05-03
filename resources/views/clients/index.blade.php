@@ -53,7 +53,7 @@
                         <td>{{strtoupper($client->first_name)}}</td>
                         <td>{{strtoupper($client->last_name)}}</td>
                         <td><a href="{{route('show',['id'=>$client->id])}}" class="text-secondary font-weight-normal text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                            View
+                            view
                           </a></td>
                       </tr>
                     @endforeach
