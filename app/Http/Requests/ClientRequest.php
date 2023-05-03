@@ -11,7 +11,7 @@ class ClientRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,14 @@ class ClientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:clients,email',
+            'date_profiled' => 'required|date',
+            'primary_legal_counsel' => 'required',
+            'date_of_birth' => 'nullable|date',
+            'profile_image' => 'nullable|mimes:jpg,jpeg,png|max:2048',
+            'case_details' => 'nullable',
         ];
     }
 }
