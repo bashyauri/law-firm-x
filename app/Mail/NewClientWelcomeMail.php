@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Models\Client;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
@@ -29,6 +30,7 @@ class NewClientWelcomeMail extends Mailable
     {
         return new Envelope(
             subject: 'New Client Welcome Mail',
+            from: new Address('basharu83@firm-x.com', 'The CEO')
         );
     }
 
@@ -38,7 +40,11 @@ class NewClientWelcomeMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.welcome',
+            markdown: 'emails.welcome',
+            with: [
+                'fullName' => $this->client->last_name.' '.$this->client->first_name,
+
+            ],
 
         );
     }
