@@ -32,7 +32,7 @@
 
               </div>
               @endif
-              <div class="form-group">
+              <div class="form-group col-md-4">
                 <label for="last-name-filter">Filter by last name:</label>
                 <input type="text" class="form-control" id="last-name-filter">
             </div>
