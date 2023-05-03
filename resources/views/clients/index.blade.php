@@ -32,6 +32,11 @@
 
               </div>
               @endif
+              <div class="form-group">
+                <label for="last-name-filter">Filter by last name:</label>
+                <input type="text" class="form-control" id="last-name-filter">
+            </div>
+
               <table class="table">
                 <thead>
                   <tr>
@@ -41,7 +46,7 @@
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody id="client-list">
                     @php
                         $i = 1;
 
@@ -71,3 +76,22 @@
     </div>
 </div>
 @endsection
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(() => {
+    const rows = $("#client-list tr");
+    const lastNameFilter = $("#last-name-filter");
+
+    lastNameFilter.on("input", () => {
+      const filterValue = lastNameFilter.val().toUpperCase();
+      rows.each((index, element) => {
+        const lastName = $(element).find("td:nth-child(3)").text().toUpperCase();
+        if (lastName.includes(filterValue)) {
+          $(element).show();
+        } else {
+          $(element).hide();
+        }
+      });
+    });
+  });
+  </script>
