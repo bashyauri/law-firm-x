@@ -35,12 +35,13 @@ This guide will walk you through the steps to download and install the Law Firm 
 
 ## Install npm:
 
-Run the following command in the terminal to install npm: `npm install`.
+1. Run the following command in the terminal to install npm: `npm install`.
 
 ## Compile front-end assets:
 
-Run the following command in the terminal to compile the front-end assets: `npm run dev`.
+1. Run the following command in the terminal to compile the front-end assets: `npm run dev`.
 
 ## Start the development server:
 
-Run the following command in the terminal to start the Laravel development server: php artisan serve. The project will be accessible in your web browser at **http://localhost:8000**.
+1. Run the following command in the terminal to start the Laravel development server: `php artisan serve`.
+2. The project will be accessible in your web browser at **http://localhost:8000**.
