@@ -10,7 +10,7 @@ This guide will walk you through the steps to download and install the Law Firm 
 ## Installing dependencies:
 
 1. Navigate to the project directory.
-2. Run composer install to install the required dependencies for the project.
+2. Run `composer install` to install the required dependencies for the project.
 
 ## Creating the .env File
 
