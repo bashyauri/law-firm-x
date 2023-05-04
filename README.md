@@ -21,7 +21,6 @@ This guide will walk you through the steps to download and install the Law Firm 
 ## Setting up Queue
 
 1. Update the to `QUEUE_CONNECTION=database`
-2. Run `php artisan queue:work` before working with mails
 
 ## Setting up Email
 
@@ -50,6 +49,10 @@ This guide will walk you through the steps to download and install the Law Firm 
 ## Compile front-end assets:
 
 1. Run the following command in the terminal to compile the front-end assets: `npm run dev`.
+
+## Setting email to work with queue
+
+1. Run `php artisan queue:work` before working sending emails.
 
 ## Start the development server:
 
