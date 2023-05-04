@@ -6,19 +6,29 @@ Navigate to the directory where you want to store the project and run the follow
 
 Navigate to the project directory and run composer install to install the required dependencies for the project.
 
-Create a .env file: Run the following command in the terminal to create a new .env file from the existing .env.example file: cp .env.example .env. Then, update the DB_DATABASE, DB_USERNAME, and DB_PASSWORD variables in the .env file to match your MySQL database credentials. [3]
+## Create a .env file:
 
-Generate an application key: Run the following command in the terminal to generate an application key for the Laravel project: php artisan key:generate.
+Run the following command in the terminal to create a new .env file from the existing .env.example file: cp .env.example .env. Then, update the DB_DATABASE, DB_USERNAME, and DB_PASSWORD variables in the .env file to match your MySQL database credentials. [3]
+
+## Generate an application key:
+
+Run the following command in the terminal to generate an application key for the Laravel project: php artisan key:generate.
 
 ## Run database migrations:
 
 Run the following command in the terminal to run the database migrations for the project: php artisan migrate.
 
-Install Laravel UI and Bootstrap: Run the following commands in the terminal to install Laravel UI and Bootstrap: composer require laravel/ui and php artisan ui bootstrap --auth.
+## Install Laravel UI and Bootstrap:
 
-Install npm: Run the following command in the terminal to install npm: npm install.
+Run the following commands in the terminal to install Laravel UI and Bootstrap: composer require laravel/ui and php artisan ui bootstrap --auth.
 
-Compile front-end assets: Run the following command in the terminal to compile the front-end assets: npm run dev.
+## Install npm:
+
+Run the following command in the terminal to install npm: npm install.
+
+## Compile front-end assets:
+
+Run the following command in the terminal to compile the front-end assets: npm run dev.
 
 ## Start the development server:
 
