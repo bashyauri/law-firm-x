@@ -62,7 +62,6 @@
                           </a></td>
                       </tr>
                     @endforeach
-
                     @else
                       <p>No Record found</p>
                     @endif
