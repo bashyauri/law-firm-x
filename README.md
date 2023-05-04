@@ -18,6 +18,16 @@ This guide will walk you through the steps to download and install the Law Firm 
    .env.example file: `cp .env.example .env.`
 2. Update the `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` variables in the .env file to match your MySQL database credentials.
 
+## Setting up Queue
+
+1. Update the to `QUEUE_CONNECTION=database`
+2. Run `php artisan queue:work` before working with mails
+
+## Setting up Email
+
+1.  Update the `MAIL_MAILER`,`MAIL_HOST`,`MAIL_PORT`,`MAIL_USERNAME`,`MAIL_PASSWORD` and `MAIL_ENCRYPTION`
+    to your **mailtrap credentials**
+
 ## Generate an application key:
 
 1. Run the following command in the terminal to generate an application key for the Laravel
