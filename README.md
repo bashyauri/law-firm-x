@@ -1,6 +1,11 @@
-## Clone the repository from GitHub:
+# Law Firm X Laravel Project Installation Guide
 
-Navigate to the directory where you want to store the project and run the following command in your terminal or command prompt: git clone https://github.com/bashyauri/law-firm-x.git
+This guide will walk you through the steps to download and install the Law Firm X Laravel project that uses MySQL as the database and Bootstrap as the frontend.
+
+## Cloning the repository from GitHub:
+
+1. Navigate to the directory where you want to store the project.
+2. Run the following command in your terminal or command prompt: `git clone https://github.com/bashyauri/law-firm-x.git`
 
 ## Install dependencies:
 
