@@ -52,7 +52,7 @@ This guide will walk you through the steps to download and install the Law Firm 
 
 ## Setting email to work with queue
 
-1. Run `php artisan queue:work` before sending emails.
+1. Run `php artisan queue:work`on your terminal before sending emails.
 
 ## Start the development server:
 
