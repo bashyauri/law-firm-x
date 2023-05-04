@@ -1,12 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Events\NewClientRegistered;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Services\ClientService;
-use Illuminate\Support\Facades\Event;
 use Exception;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -15,7 +12,7 @@ use Illuminate\Support\Facades\Log;
 class ClientController extends Controller
 {
     public function __construct(
-        public ClientService $clientService
+        protected ClientService $clientService
     ) {}
     /**
      * Display a listing of the resource.
@@ -43,7 +40,7 @@ class ClientController extends Controller
     try {
         $client =  $this->clientService->createClient($validatedData);
 
-        Event::dispatch(new NewClientRegistered($client));
+
         return redirect()->back()->with(['success_message' => 'Record Created']);
 
     } catch (\Exception $ex) {

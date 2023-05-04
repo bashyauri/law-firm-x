@@ -32,7 +32,6 @@
 
               </div>
               @endif
-              @empty($clients)
               <div class="form-group col-md-4">
                 <label for="last-name-filter">Filter by last name:</label>
                 <input type="text" class="form-control" id="last-name-filter">
@@ -52,8 +51,7 @@
                         $i = 1;
 
                     @endphp
-
-                    @foreach ($clients as $client)
+                    @forelse ($clients as $client)
                     <tr>
                         <th scope="row">{{$i++}}</th>
                         <td>{{strtoupper($client->first_name)}}</td>
@@ -62,13 +60,18 @@
                             view
                           </a></td>
                       </tr>
-                    @endforeach
+                    @empty
+                    <tr>
+                        <td colspan="4" class="alert text-warning">No Record Found</td>
+                    </tr>
+
+                    @endforelse
+
+
+
 
                 </tbody>
               </table>
-              @else
-              <p>No Clients found</p>
-          @endempty
                 </div>
 
             </div>

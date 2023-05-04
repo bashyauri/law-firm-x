@@ -30,12 +30,10 @@ class CheckProfileImageCommand extends Command
      */
     public function handle()
     {
-        $clients = Client::all();
+        $clients = Client::where("profile_image",null)->get();
 
         foreach ($clients as $client) {
-            if (!$client->profile_image) {
-                Notification::send($client, new ClientImageNotification());
-            }
+            Notification::send($client, new ClientImageNotification());
         }
     }
 }

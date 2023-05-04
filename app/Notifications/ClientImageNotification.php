@@ -37,7 +37,7 @@ class ClientImageNotification extends Notification implements ShouldQueue
     {
         return (new MailMessage)
             ->subject('Reminder: Profile Image Required')
-            ->line('Dear ' . $notifiable->last_name . ',')
+            ->line('Dear ' . $notifiable->first_name . ',')
             ->line('We noticed that your profile image is missing.')
             ->line('Please drop your passport photograph with Law Firm X as soon as possible.')
             ->line('Thank you for your cooperation.')

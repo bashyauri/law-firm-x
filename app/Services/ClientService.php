@@ -2,7 +2,9 @@
 
 namespace App\Services;
 
+use App\Events\NewClientRegistered;
 use App\Models\Client;
+use Illuminate\Support\Facades\Event;
 
 /**
  * Class ClientService.
@@ -20,6 +22,7 @@ class ClientService
         }
 
        $client->save();
+       Event::dispatch(new NewClientRegistered($client));
        return $client;
     }
 }
