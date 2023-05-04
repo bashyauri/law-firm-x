@@ -6,10 +6,9 @@ use App\Events\NewClientRegistered;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Services\ClientService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
-use Illuminate\Support\Facades\Mail;
-use Illuminate\Auth\Events\Validated;
 use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
@@ -44,15 +43,7 @@ class ClientController extends Controller
     $validatedData = $request->validated();
     try {
         $client =  $this->clientService->createClient($validatedData);
-        //     $client = new Client();
-        // $client->fill($validatedData);
 
-        // if ($request->hasFile('profile_image')) {
-        //     $path = $request->file('profile_image')->store('public/profile_images');
-        //     $client->profile_image = basename($path);
-        // }
-
-        // $client->save();
         Event::dispatch(new NewClientRegistered($client));
         return redirect()->back()->with(['success_message' => 'Record Created']);
 
@@ -68,7 +59,10 @@ class ClientController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $client = Client::find($id);
+        $date = Carbon::parse($client->date_profiled);
+        $date_profiled = $date->diffForHumans();
+        return view('clients.show')->with(['client'=>$client,'date_profiled' => $date_profiled]);
     }
 
     /**
