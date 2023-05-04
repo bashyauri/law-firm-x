@@ -20,24 +20,27 @@ This guide will walk you through the steps to download and install the Law Firm 
 
 ## Generate an application key:
 
-Run the following command in the terminal to generate an application key for the Laravel project: `php artisan key:generate`.
+1. Run the following command in the terminal to generate an application key for the Laravel
+   project: `php artisan key:generate`.
 
 ## Run database migrations:
 
-Run the following command in the terminal to run the database migrations for the project: php artisan migrate.
+1. Run the following command in the terminal to run the database migrations for the
+   project: `php artisan migrate`.
 
 ## Install Laravel UI and Bootstrap:
 
-Run the following commands in the terminal to install Laravel UI and Bootstrap: composer require laravel/ui and php artisan ui bootstrap --auth.
+1. Run the following commands in the terminal to install Laravel UI and Bootstrap:
+   `composer require laravel/ui` and `php artisan ui bootstrap --auth`.
 
 ## Install npm:
 
-Run the following command in the terminal to install npm: npm install.
+Run the following command in the terminal to install npm: `npm install`.
 
 ## Compile front-end assets:
 
-Run the following command in the terminal to compile the front-end assets: npm run dev.
+Run the following command in the terminal to compile the front-end assets: `npm run dev`.
 
 ## Start the development server:
 
-Run the following command in the terminal to start the Laravel development server: php artisan serve. The project will be accessible in your web browser at http://localhost:8000.
+Run the following command in the terminal to start the Laravel development server: php artisan serve. The project will be accessible in your web browser at **http://localhost:8000**.
