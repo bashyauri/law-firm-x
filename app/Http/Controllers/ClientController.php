@@ -6,10 +6,10 @@ use App\Events\NewClientRegistered;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Services\ClientService;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Exception;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Log;
 
@@ -21,7 +21,7 @@ class ClientController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index() : View
     {
         $clients = Client::all();
         return view('clients.index')->with(['clients'=>$clients]);
@@ -30,7 +30,7 @@ class ClientController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create() : View
     {
         return view('clients.create');
     }
@@ -57,12 +57,11 @@ class ClientController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id) : View
     {
         $client = Client::find($id);
-        $date = Carbon::parse($client->date_profiled);
-        $date_profiled = $date->diffForHumans();
-        return view('clients.show')->with(['client'=>$client,'date_profiled' => $date_profiled]);
+
+        return view('clients.show')->with(['client'=>$client]);
     }
 
 
