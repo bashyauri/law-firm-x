@@ -2,22 +2,25 @@
 
 This guide will walk you through the steps to download and install the Law Firm X Laravel project that uses MySQL as the database and Bootstrap as the frontend.
 
-## Cloning the repository from GitHub:
+## Cloning the Repository
 
 1. Navigate to the directory where you want to store the project.
 2. Run the following command in your terminal or command prompt: `git clone https://github.com/bashyauri/law-firm-x.git`
 
-## Install dependencies:
+## Installing dependencies:
 
-Navigate to the project directory and run composer install to install the required dependencies for the project.
+1. Navigate to the project directory.
+2. Run composer install to install the required dependencies for the project.
 
-## Create a .env file:
+## Creating the .env File
 
-Run the following command in the terminal to create a new .env file from the existing .env.example file: cp .env.example .env. Then, update the DB_DATABASE, DB_USERNAME, and DB_PASSWORD variables in the .env file to match your MySQL database credentials. [3]
+1. Run the following command in the terminal to create a new .env file from the existing
+   .env.example file: `cp .env.example .env.`
+2. Update the `DB_DATABASE`, `DB_USERNAME`, and `DB_PASSWORD` variables in the .env file to match your MySQL database credentials.
 
 ## Generate an application key:
 
-Run the following command in the terminal to generate an application key for the Laravel project: php artisan key:generate.
+Run the following command in the terminal to generate an application key for the Laravel project: `php artisan key:generate`.
 
 ## Run database migrations:
 
