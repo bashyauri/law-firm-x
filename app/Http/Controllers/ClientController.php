@@ -6,7 +6,6 @@ use App\Events\NewClientRegistered;
 use App\Http\Requests\ClientRequest;
 use App\Models\Client;
 use App\Services\ClientService;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Event;
 use Exception;
 use Illuminate\Contracts\View\View;
@@ -54,9 +53,7 @@ class ClientController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id) : View
     {
         $client = Client::find($id);
