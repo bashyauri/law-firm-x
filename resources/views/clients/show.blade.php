@@ -40,7 +40,7 @@
                   <h5 class="card-title">Email: {{$client->email}}</h5>
                   <h5 class="card-title">Profiled: {{date("d-m-Y", strtotime($client->date_profiled))}}</h5>
 
-                  <p class="card-text">Case:{{$client->case_details}}</p>
+                  <p class="card-text">Case Details:{{$client->case_details}}</p>
                 </div>
                 <ul class="list-group list-group-flush">
                   <li class="list-group-item">Primary Legal Counsel: {{$client->primary_legal_counsel}}</li>
