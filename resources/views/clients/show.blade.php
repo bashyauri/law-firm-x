@@ -33,8 +33,9 @@
               </div>
               @endif
 
+              <img src="{{ $client->profile_image ? asset('storage/profile_images/'.$client->profile_image)
+              : asset('storage/profile_images/default.png') }}" class="card-img-top" width="200" height="300" alt="Profile Image">
 
-                <img src="{{ asset('storage/profile_images/'.$client->profile_image) }}" class="card-img-top" width="200" height="300" alt="Profile Image">
                 <div class="card-body">
                   <h5 class="card-title">Name: {{$client->first_name.' '.$client->last_name}}</h5>
                   <h5 class="card-title">Email: {{$client->email}}</h5>
@@ -48,7 +49,7 @@
                 </ul>
                 <div class="card-body">
                   <a href="{{route('/')}}" class="card-link">Back to main</a>
-                  <a href="{{route('create')}}" class="card-link">Another link</a>
+                  <a href="{{route('create')}}" class="card-link">Create Another</a>
                 </div>
               </div>
 
